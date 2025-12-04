@@ -64,7 +64,7 @@ def scrape_hacker_news(url):
             title_elem = story.select_one('span.titleline a')
             if title_elem:
                 title = title_elem.text.strip()
-                link = title_elem.get('href', '')
+                link = title_elem.get('hre', '')
 
                 # Get score and comments from next row
                 score_row = story.find_next_sibling('tr')
@@ -121,7 +121,7 @@ def scrape_data(url):
                     if title_elem:
                         data.append({
                             'title': title_elem.text.strip(),
-                            'link': link_elem.get('href', '') if link_elem else '',
+                            'link': link_elem.get('hre', '') if link_elem else '',
                             'description': 'N/A',
                             'published': 'N/A'
                         })
@@ -174,7 +174,7 @@ def main():
 
     # Display sample
     if len(df) > 0:
-        print(f"\n[DATA] Top 5 articles:")
+        print("\n[DATA] Top 5 articles:")
         print(df.head())
 
 
