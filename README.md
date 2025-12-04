@@ -26,7 +26,18 @@ pip install -r requirements.txt
 ## Usage
 
 ```bash
-python main.py --url "https://example.com" --output output/results.csv
+# Default: Scrapes Hacker News
+python main.py
+
+# Custom news source or RSS feed
+python main.py --url "https://example.com/rss"
+```
+
+**Live Demo:** Try it now with Hacker News!
+
+```bash
+python main.py
+# Aggregates 30 top stories from Hacker News
 ```
 
 ## Output Format
@@ -35,9 +46,10 @@ Results are saved as CSV with the following columns:
 
 | Column | Description |
 |--------|-------------|
-| name   | Item name   |
-| value  | Item value  |
-| url    | Source URL  |
+| title   | Article title   |
+| link  | Article URL  |
+| description | Article description or score |
+| published | Publication date |
 
 ## Testing
 
@@ -55,4 +67,4 @@ For questions or custom scraping projects, contact me at [your-email]
 
 ---
 
-**Note:** This is a portfolio project demonstrating web scraping capabilities. Use responsibly and respect websites' Terms of Service.
+**Note:** This project scrapes Hacker News by default, which allows scraping. It's fully functional and collects real data from RSS feeds and HTML. Always respect robots.txt and Terms of Service when scraping websites.
