@@ -156,8 +156,13 @@ def main():
 
     args = parser.parse_args()
 
-    print(f"Aggregating news from {args.url}...")
-    df = scrape_data(args.url)
+    # Auto-add https:// if missing
+    url = args.url
+    if not url.startswith(('http://', 'https://')):
+        url = 'https://' + url
+
+    print(f"Aggregating news from {url}...")
+    df = scrape_data(url)
 
     # Save to CSV
     output_path = Path(args.output)
